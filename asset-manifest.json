@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/logistic-support-calculator-v2/static/css/main.9d5b29c0.chunk.css",
-    "main.js": "/logistic-support-calculator-v2/static/js/main.4d52f27e.chunk.js",
-    "main.js.map": "/logistic-support-calculator-v2/static/js/main.4d52f27e.chunk.js.map",
-    "runtime-main.js": "/logistic-support-calculator-v2/static/js/runtime-main.ff09f520.js",
-    "runtime-main.js.map": "/logistic-support-calculator-v2/static/js/runtime-main.ff09f520.js.map",
-    "static/js/2.07e96ccb.chunk.js": "/logistic-support-calculator-v2/static/js/2.07e96ccb.chunk.js",
-    "static/js/2.07e96ccb.chunk.js.map": "/logistic-support-calculator-v2/static/js/2.07e96ccb.chunk.js.map",
-    "static/js/3.8a7b5e60.chunk.js": "/logistic-support-calculator-v2/static/js/3.8a7b5e60.chunk.js",
-    "static/js/3.8a7b5e60.chunk.js.map": "/logistic-support-calculator-v2/static/js/3.8a7b5e60.chunk.js.map",
-    "index.html": "/logistic-support-calculator-v2/index.html",
-    "static/css/main.9d5b29c0.chunk.css.map": "/logistic-support-calculator-v2/static/css/main.9d5b29c0.chunk.css.map",
-    "static/js/2.07e96ccb.chunk.js.LICENSE.txt": "/logistic-support-calculator-v2/static/js/2.07e96ccb.chunk.js.LICENSE.txt",
-    "static/media/logo.6ce24c58.svg": "/logistic-support-calculator-v2/static/media/logo.6ce24c58.svg"
+    "main.css": "/Logistic-Support-Calculator-v2/static/css/main.9d5b29c0.chunk.css",
+    "main.js": "/Logistic-Support-Calculator-v2/static/js/main.4d52f27e.chunk.js",
+    "main.js.map": "/Logistic-Support-Calculator-v2/static/js/main.4d52f27e.chunk.js.map",
+    "runtime-main.js": "/Logistic-Support-Calculator-v2/static/js/runtime-main.ad935e74.js",
+    "runtime-main.js.map": "/Logistic-Support-Calculator-v2/static/js/runtime-main.ad935e74.js.map",
+    "static/js/2.07e96ccb.chunk.js": "/Logistic-Support-Calculator-v2/static/js/2.07e96ccb.chunk.js",
+    "static/js/2.07e96ccb.chunk.js.map": "/Logistic-Support-Calculator-v2/static/js/2.07e96ccb.chunk.js.map",
+    "static/js/3.8a7b5e60.chunk.js": "/Logistic-Support-Calculator-v2/static/js/3.8a7b5e60.chunk.js",
+    "static/js/3.8a7b5e60.chunk.js.map": "/Logistic-Support-Calculator-v2/static/js/3.8a7b5e60.chunk.js.map",
+    "index.html": "/Logistic-Support-Calculator-v2/index.html",
+    "static/css/main.9d5b29c0.chunk.css.map": "/Logistic-Support-Calculator-v2/static/css/main.9d5b29c0.chunk.css.map",
+    "static/js/2.07e96ccb.chunk.js.LICENSE.txt": "/Logistic-Support-Calculator-v2/static/js/2.07e96ccb.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/Logistic-Support-Calculator-v2/static/media/logo.6ce24c58.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.ff09f520.js",
+    "static/js/runtime-main.ad935e74.js",
     "static/js/2.07e96ccb.chunk.js",
     "static/css/main.9d5b29c0.chunk.css",
     "static/js/main.4d52f27e.chunk.js"
