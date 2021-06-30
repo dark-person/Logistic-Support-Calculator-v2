@@ -277,11 +277,11 @@ function App() {
   }
 
   function submitForm(){
+    setCombinationList(calculateResult(teamNumber, filteredSupportList, weighting, itemCount));
     setShowResult(true);
     //console.log("submitForm - filteredSupportList : ",JSON.stringify(filteredSupportList, null,4));
   }
 
-  // TODO: check
   function calculateResult(FormationCount, filteredSupportList, weighting, itemCount){
     var preResult = k_combinations(filteredSupportList,FormationCount);
     let result = [];
@@ -436,7 +436,7 @@ function App() {
         { showResult &&
         <Row>
           <Col id="result-area">
-            
+            <ResultTable data={combinationList}/>
           </Col>
         </Row>
         }

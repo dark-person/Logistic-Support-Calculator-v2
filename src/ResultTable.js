@@ -7,6 +7,8 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
+import BTable from 'react-bootstrap/Table';
+
 import { useTable } from 'react-table'
 
 function ResultTable({data}){
@@ -14,42 +16,56 @@ function ResultTable({data}){
 	const columns = React.useMemo(
     	() => [
       		{
-    	    	Header: 'Name',
-    	    	columns: [
-          			{
-            			Header: 'First Name',
-            			accessor: 'firstName',
-          			},
-          			{
-            			Header: 'Last Name',
-            			accessor: 'lastName',
-          			},
-        		],
+      			Header: "後勤組合",
+      		    accessor: "combination",
       		},
       		{
-    		    Header: 'Info',
-        		columns: [
-          			{
-            			Header: 'Age',
-            			accessor: 'age',
-          			},
-          			{
-            			Header: 'Visits',
-            			accessor: 'visits',
-          			},
-          			{
-            			Header: 'Status',
-            			accessor: 'status',
-          			},
-          			{
-            			Header: 'Profile Progress',
-            			accessor: 'progress',
-          			},
-        		],
+      			Header: "人力/次",
+      			accessor: "manpower",
       		},
-    ],
-    []
-  )
+      		{
+      		    Header: "彈藥/次",
+      			accessor: "ammo",
+      		},
+      		{
+      			Header: "口糧/次",
+      			accessor: "rations",
+      		},
+      		{
+      			Header: "零件/次",
+      			accessor: "parts",
+      		},
+      		{
+      			Header: "快速修理契約",
+      			accessor: "quickRestoration",
+      		},
+      		{
+      			Header: "快速製造契約",
+      			accessor: "quickProduction",
+      		},
+      		{
+      			Header: "人形契約",
+		   		accessor: "tDollContract",
+      		},
+      		{
+      			Header: "裝備契約",
+      		    accessor: "equipmentContract",
+      		},
+      		{
+      		   	Header: "採購幣",
+      		   	accessor: "token",
+     		},
+      		{
+				Header: "值",
+      			accessor: "value",
+      		},
+      		{
+      			Header: "資源總量",
+      			accessor: "totalResource",
+      		}
+      		
+    	],[]
+  	)
 
 	const {
 		getTableProps,
@@ -65,7 +81,30 @@ function ResultTable({data}){
 	return(
 		<div className="grid">
 			<h4 className="title">計算結果：</h4>
-			<table {...getTableProps()} >
+			<BTable striped bordered hover variant="dark" size="sm" {...getTableProps()}>
+				<thead>
+					{headerGroups.map(headerGroup => (
+					  <tr {...headerGroup.getHeaderGroupProps()}>
+					    {headerGroup.headers.map(column => (
+					      <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+					    ))}
+					  </tr>
+					))}
+				</thead>
+				<tbody>
+					{rows.map((row, i) => {
+			          prepareRow(row)
+			          return (
+			            <tr {...row.getRowProps()}>
+				              {row.cells.map(cell => {
+				                return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+				              })}
+				        </tr>
+				        )
+				    })}
+				</tbody>
+			</BTable>
+			{/*<table {...getTableProps()} >
 				<thead>
 				    {headerGroups.map(headerGroup => (
 				      <tr {...headerGroup.getHeaderGroupProps()}>
@@ -87,7 +126,7 @@ function ResultTable({data}){
 				        )
 				    })}
 				</tbody>
-			</table>
+			</table>*/}
 		</div>
 		)
 }
