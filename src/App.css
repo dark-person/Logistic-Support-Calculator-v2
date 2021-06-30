@@ -1,38 +1,122 @@
-.App {
-  text-align: center;
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h4.title {
+  text-decoration: underline;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+h5.label{
+  margin-top: .5rem; 
+}
+
+input.form-control {
+  background-color: #272727;
+  color: lightgrey;
+}
+
+input.form-control:focus {
+  border: 3px solid white;
+  background-color: #272727;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.panel{
+  margin-right : 1em;
+  margin-left: 1em; 
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.topbar {
+  background-color: #BB86FC;
+  color: black;
+  border-radius: 5px;
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+}
+
+.grid {
+  background-color: #272727;
+  border-radius: 10px;
+  padding: 1rem;
+  height: 100%!important;
+}
+
+.grid-thin {
+  background-color: #272727;
+  border-radius: 10px;
+  padding: 0.2rem;
+}
+
+.col {
+  padding: 0.3rem;
+}
+
+.line {
+  border-bottom: 1px;
+  width:100%;
+  border-color: white;
+}
+
+.checkbox-section {
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+.section {
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+.radio-section {
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+.btn-outline-purple.active {
+  color: #121212;
+  background-color: #DBB1FA;
+  border-color: #DBB1FA;
+} 
+
+.btn-outline-purple{
+  color: #DBB1FA;
+  border-color: #DBB1FA;
+}
+
+.btn-outline-lightpurple{
+  color: #3B2E49;
+  border-color: #3B2E49;
+}
+
+#triple-button-col > .btn:hover{
+  border-width: 1px;
+  color: #C5A1E4;
+  background-color: #3B2E49;
+  border-color: #C5A1E4;
+}
+
+.caution-description{
+  font-weight: bold;
+  color: #CF6679;
+}
+
+
+input.timebox{
+  width: auto;
+}
+
+input.weightbox{
+  width: inherit;
+  margin-right: 0.3rem;
+}
+
+input.itembox{
+  width: inherit;
+  margin-right: 0.3rem;
 }
