@@ -47,6 +47,13 @@ input.form-control:focus {
   height: 100%!important;
 }
 
+.alert-grid {
+  border: solid;
+  border-width: 1 1px;
+  border-color: red;
+  text-align: center;
+}
+
 .grid-thin {
   background-color: #272727;
   border-radius: 10px;
@@ -106,10 +113,13 @@ input.form-control:focus {
   color: #CF6679;
 }
 
-.table{
-  color: lightgrey;
+.scrollable{
+  overflow: scroll;
 }
 
+.combination-field{
+  width: 350px;
+}
 
 input.timebox{
   width: auto;
@@ -123,4 +133,8 @@ input.weightbox{
 input.itembox{
   width: inherit;
   margin-right: 0.3rem;
+}
+
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before{
+  background-color:black;
 }

@@ -15,9 +15,9 @@ import k_combinations from "./combination.js";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button'
+import Alert from 'react-bootstrap/Alert'
 
 let data = require("./supportData.json");
 
@@ -70,6 +70,7 @@ function App() {
 
   // showResult: trigger to control display result area or not
   const [showResult, setShowResult] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
 
   // This function is to convert Hour and minutes to Minutes
   // Input: hr - Hour
@@ -131,15 +132,17 @@ function App() {
   }
 
   useEffect(() =>{
-    // console.log("Use Effect Start.");
-    // console.log(chapterState);
-    // console.log("=============================");
-    // console.log(JSON.stringify(data.chapterList, null, 4));
-    // console.log("=============================");
-    // console.log(JSON.stringify(filteredSupportList,null,4));
-    // console.log("Use Effect End.");
     });
     
+  // A function call when parameter change
+  function notifyParameterChange(){
+    if (showResult){
+      setShowResult(false);
+      setShowAlert(true);
+      setTimeout(
+        ()=> setShowAlert(false),3000)    
+    }
+  }
 
   //=========================Basic Part End===========================
 
@@ -154,22 +157,21 @@ function App() {
 
     setChapterState(temp);
     setFilterSupportList(filterList);
-
-    // !!Old version:
-    // let combination = calculateResult(state.formationCount, filterList, weighting, itemCount);
-    // setCombinationList(combination);
+    notifyParameterChange();
   }
 
   function clearAllChapter(){
     setChapterState(emptyChapterState);
     // console.log("clearAllChapter - pre-result = ",getFilteredSupportList(emptyChapterState,afkHour,afkMinute));
     setFilterSupportList(getFilteredSupportList(emptyChapterState,afkHour,afkMinute));
+    notifyParameterChange();
   }
 
   function selectAllChapter(){
     setChapterState(initChapterState);
     // console.log("selectAllChapter - pre-result = ",getFilteredSupportList(initChapterState,afkHour,afkMinute));
     setFilterSupportList(getFilteredSupportList(initChapterState,afkHour,afkMinute));
+    notifyParameterChange();
 
   }
   //=========================Chapter Function End=========================
@@ -181,6 +183,7 @@ function App() {
   // value: the value of togglebuttongroup
   function handleTeamNumberChange(value){
     setTeamNumber(value);
+    notifyParameterChange();
   }
   //=========================Team Function End=========================
 
@@ -192,6 +195,8 @@ function App() {
       target.value);
 
     setAfkHour(value);
+    setFilterSupportList(getFilteredSupportList(parseChapterState(chapterState), value, afkMinute))
+    notifyParameterChange();
   }
 
   function minuteChangeHandler(event){
@@ -201,6 +206,8 @@ function App() {
       target.value);
 
     setAfkMinute(value);
+    setFilterSupportList(getFilteredSupportList(parseChapterState(chapterState), afkHour, value))
+    notifyParameterChange();
   }
   //=========================Time Function End============================
 
@@ -214,7 +221,8 @@ function App() {
         target.value)
     };
 
-    setWeighting(newWeighting);
+    setWeighting(newWeighting); 
+    notifyParameterChange();
   }
 
   function tripleParts(){
@@ -224,6 +232,7 @@ function App() {
     };
 
     setWeighting(newWeighting);
+    notifyParameterChange();
   }
   //=========================Weight Function End============================
 
@@ -240,6 +249,7 @@ function App() {
     }
 
     setItemCount(newItemCount);
+    notifyParameterChange();
   }
   //=========================Item Function End============================
 
@@ -273,13 +283,13 @@ function App() {
     setItemCount(oldItemCount);
 
     setCombinationList([]);
-    setShowResult(false);
+    notifyParameterChange();
   }
 
   function submitForm(){
     setCombinationList(calculateResult(teamNumber, filteredSupportList, weighting, itemCount));
     setShowResult(true);
-    //console.log("submitForm - filteredSupportList : ",JSON.stringify(filteredSupportList, null,4));
+    setShowAlert(false);
   }
 
   function calculateResult(FormationCount, filteredSupportList, weighting, itemCount){
@@ -359,6 +369,37 @@ function App() {
     }
   }
 
+
+
+  // Default Order: Desc Order
+  function dynamicSort(property) {
+      var sortOrder = 1;
+      if(property[0] === "-") {
+          sortOrder = -1;
+          property = property.substr(1);
+      }
+      return function (a,b) {
+          var result = (a[property] > b[property]) ? -1 :
+            (a[property] < b[property]) ? 1 : 
+              (a["value"] > b["value"]) ? -1 :
+                (a["value"] < b["value"]) ? 1 : 0 ;
+          
+          // console.log("dynamicSort[",property,"(",sortOrder,")] - ",
+          //   a.combination,"(",a[property],",",a.value,")","&",
+          //   b.combination,"(",b[property],",",b.value,")",
+          //   " Result : ",result);
+          return result * sortOrder;
+      }
+  }
+
+  function sortCombinationList(property){
+    console.log("Received! ",property);
+    let temp = combinationList.sort(dynamicSort(property));
+
+    console.log("Pre-Result: ",JSON.stringify(temp,null,4));
+    setCombinationList(temp);
+  }
+
   //=========================Final Function End===============================
 
   return (
@@ -433,12 +474,27 @@ function App() {
           </Col>
         </Row>
 
-        { showResult &&
-        <Row>
-          <Col id="result-area">
-            <ResultTable data={combinationList}/>
-          </Col>
-        </Row>
+        {
+          showAlert && 
+          <Row>
+            <Col>
+              <div className="grid alert-grid">
+                <h4 className="title caution-description">提醒</h4>
+                <p className="caution-description section">偵察到參數變更，計算結果重置。</p>
+                <p>此提醒3秒後消失。</p>
+              </div>
+            </Col>
+          </Row>
+        }
+
+        { showResult && 
+          <Row>
+            <Col id="result-area">
+              <div className="grid">
+                <ResultTable data={combinationList} dynamicSort={dynamicSort}/>
+              </div>
+            </Col>
+          </Row>
         }
       </Container>
 
