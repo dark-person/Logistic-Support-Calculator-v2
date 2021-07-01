@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/Logistic-Support-Calculator-v2/static/css/main.66627c9e.chunk.css",
-    "main.js": "/Logistic-Support-Calculator-v2/static/js/main.4678305f.chunk.js",
-    "main.js.map": "/Logistic-Support-Calculator-v2/static/js/main.4678305f.chunk.js.map",
+    "main.css": "/Logistic-Support-Calculator-v2/static/css/main.32b38272.chunk.css",
+    "main.js": "/Logistic-Support-Calculator-v2/static/js/main.2b997375.chunk.js",
+    "main.js.map": "/Logistic-Support-Calculator-v2/static/js/main.2b997375.chunk.js.map",
     "runtime-main.js": "/Logistic-Support-Calculator-v2/static/js/runtime-main.37a0c603.js",
     "runtime-main.js.map": "/Logistic-Support-Calculator-v2/static/js/runtime-main.37a0c603.js.map",
-    "static/js/2.120d5b0a.chunk.js": "/Logistic-Support-Calculator-v2/static/js/2.120d5b0a.chunk.js",
-    "static/js/2.120d5b0a.chunk.js.map": "/Logistic-Support-Calculator-v2/static/js/2.120d5b0a.chunk.js.map",
+    "static/js/2.d5fda1b6.chunk.js": "/Logistic-Support-Calculator-v2/static/js/2.d5fda1b6.chunk.js",
+    "static/js/2.d5fda1b6.chunk.js.map": "/Logistic-Support-Calculator-v2/static/js/2.d5fda1b6.chunk.js.map",
     "static/js/3.7eef5a8f.chunk.js": "/Logistic-Support-Calculator-v2/static/js/3.7eef5a8f.chunk.js",
     "static/js/3.7eef5a8f.chunk.js.map": "/Logistic-Support-Calculator-v2/static/js/3.7eef5a8f.chunk.js.map",
     "index.html": "/Logistic-Support-Calculator-v2/index.html",
-    "static/css/main.66627c9e.chunk.css.map": "/Logistic-Support-Calculator-v2/static/css/main.66627c9e.chunk.css.map",
-    "static/js/2.120d5b0a.chunk.js.LICENSE.txt": "/Logistic-Support-Calculator-v2/static/js/2.120d5b0a.chunk.js.LICENSE.txt",
+    "static/css/main.32b38272.chunk.css.map": "/Logistic-Support-Calculator-v2/static/css/main.32b38272.chunk.css.map",
+    "static/js/2.d5fda1b6.chunk.js.LICENSE.txt": "/Logistic-Support-Calculator-v2/static/js/2.d5fda1b6.chunk.js.LICENSE.txt",
     "static/media/waifu-min.67b9013a.gif": "/Logistic-Support-Calculator-v2/static/media/waifu-min.67b9013a.gif"
   },
   "entrypoints": [
     "static/js/runtime-main.37a0c603.js",
-    "static/js/2.120d5b0a.chunk.js",
-    "static/css/main.66627c9e.chunk.css",
-    "static/js/main.4678305f.chunk.js"
+    "static/js/2.d5fda1b6.chunk.js",
+    "static/css/main.32b38272.chunk.css",
+    "static/js/main.2b997375.chunk.js"
   ]
 }
