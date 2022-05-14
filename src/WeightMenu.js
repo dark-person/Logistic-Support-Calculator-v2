@@ -6,6 +6,8 @@ import Col from 'react-bootstrap/Col';
 
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import ToggleButton from 'react-bootstrap/ToggleButton';
+import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';	
 
 function ResourceWeightInput(props){
   return(
@@ -52,6 +54,15 @@ function WeightCol(props){
 // weightChangeHandler
 // triplehandler
 function WeightMenu(props){
+
+	function displayText(selected) {
+		if (selected){
+			return "禁止數字為零"
+		} else {
+			return "允許數字為零"
+		}
+	}
+
 	return (
 		<div className="grid">
 			<h4 className="title">權重：</h4>
@@ -88,6 +99,22 @@ function WeightMenu(props){
 						Handler={props.weightChangeHandler}
 						tripleHandler={props.tripleHandler}
 					/>
+				</Row>
+				<Row>
+					<Col><h5 className="label mx-3">資源數量</h5></Col>
+					<Col>
+						<ToggleButtonGroup type="checkbox" name="toggleButton">
+							<ToggleButton
+        						className="mb-2"
+  						        id="toggle-check"
+        						variant="outline-purple"
+        						checked={props.nonZero}
+								value="1"
+								onChange={props.nonZeroHandler}
+      						>{displayText(props.nonZero)}
+      						</ToggleButton>
+						</ToggleButtonGroup>
+					</Col>	
 				</Row>
 			</Form>
 		</div>

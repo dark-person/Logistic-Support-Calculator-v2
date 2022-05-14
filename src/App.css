@@ -91,7 +91,19 @@ input.form-control:focus {
   border-color: #DBB1FA;
 } 
 
+.btn-outline-purple.active:hover {
+  color: #121212;
+  background-color: #DBB1FA;
+  border-color: #DBB1FA;
+} 
+
+
 .btn-outline-purple{
+  color: #DBB1FA;
+  border-color: #DBB1FA;
+}
+
+.btn-outline-purple:hover{
   color: #DBB1FA;
   border-color: #DBB1FA;
 }

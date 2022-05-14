@@ -52,6 +52,8 @@ function App() {
     parts: 1
   });
 
+  const [nonZero, setNonZero] = useState(false)
+  
   // itemCount: state that store different item count that wanted
   const [itemCount, setItemCount] = useState({
     quickRestoration: 0,
@@ -232,6 +234,13 @@ function App() {
     setWeighting(newWeighting);
     notifyParameterChange();
   }
+
+  function handleNonZero(event){
+    setNonZero(event.currentTarget.checked)
+    console.log("Console get:", nonZero)
+    notifyParameterChange();
+  }
+
   //=========================Weight Function End============================
 
 
@@ -285,12 +294,12 @@ function App() {
   }
 
   function submitForm(){
-    setCombinationList(calculateResult(teamNumber, filteredSupportList, weighting, itemCount));
+    setCombinationList(calculateResult(teamNumber, filteredSupportList, weighting, itemCount, nonZero));
     setShowResult(true);
     setShowAlert(false);
   }
 
-  function calculateResult(FormationCount, filteredSupportList, weighting, itemCount){
+  function calculateResult(FormationCount, filteredSupportList, weighting, itemCount, nonZero){
     var preResult = k_combinations(filteredSupportList,FormationCount);
     let result = [];
 
@@ -341,12 +350,16 @@ function App() {
         object.tDollContract >= itemCount.tDollContract &&
         object.equipmentContract >= itemCount.equipmentContract &&
         object.token >= itemCount.token){
-        result.push(object);
+          result.push(object); 
       }
     });
 
-    result.sort(compare);
+    if (nonZero) {
+      result = result.filter(object => object.manpower > 0 && object.ammo > 0 && object.rations > 0 && object.parts > 0);
+    }
 
+    result.sort(compare);
+    
     result = result.slice(0,30);
     return result;
   }
@@ -390,6 +403,7 @@ function App() {
       }
   }
 
+  // Debug Usage
   function sortCombinationList(property){
     console.log("Received! ",property);
     let temp = combinationList.sort(dynamicSort(property));
@@ -442,6 +456,8 @@ function App() {
               parts={weighting.parts}
               weightChangeHandler={handleWeightChange}
               tripleHandler={tripleParts} 
+              nonZero={nonZero}
+              nonZeroHandler={handleNonZero}
               />
           </Col>
 
