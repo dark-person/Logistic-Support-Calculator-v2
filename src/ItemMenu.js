@@ -5,7 +5,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 
 function ItemInput(props){
   return (
@@ -24,11 +23,6 @@ function ItemInput(props){
 }
 
 function ItemCol(props){
-
-	function tempHandler(event){
-		console.log("ItemCol - ",event.target);
-		console.log("ItemCol - ",event.target.value);
-	}
 
 	return(
 		<Col>

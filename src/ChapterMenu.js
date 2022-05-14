@@ -19,21 +19,6 @@ function ChapterBox(props){
     );
 }
 
-function ChapterBoxNew(props){
-	return(
-		<div class="form-check form-check-inline">
-			<input 
-				type="checkbox" 
-				checked={props.chapterStatus}
-				onChange={props.chapterHandler}
-				value={props.chapterId}
-				id={props.chapterId}
-				className="custom-checkbox form-check-input"/>
-			<label className="form-check-label">{"第"+data.chineseNumber[props.chapterId]+"戰役"}</label>
-		</div>
-		)
-}
-
 // Require Props:
 // chapterStatus - a array show the status of which chapter selected
 // chapterHandler - put handleChapterChange function in App.js is okay
